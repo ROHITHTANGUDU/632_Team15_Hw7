@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Placed Successfully</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+    </style></head>
+<body>
+    <h1>Order Placed Successfully!</h1>
+    <h2 id="orderNo"></h2>
+    <p>Thank you for your purchase. Your order has been successfully placed.</p>
+    <!-- You can add more details or links here as needed --></body>
+
+    <!-- Button to show order receipt -->
+    <button id="receiptButton" onclick="showReceipt()">Show Order Receipt</button>
+
+    <!-- Placeholder for the receipt (hidden by default) -->
+    <div id="receipt" style="display: none;">
+        <h2>Order Receipt</h2>
+
+        <ul class="list-group mb-3" id="Order-LIST">
+        </ul>
+        <!-- Add receipt details here -->
+    </div>
+
+    <script>
+        let orderNoEle = document.getElementById("orderNo");
+        let ORDERLIST = document.getElementById("Order-LIST");
+
+        orderNoEle.textContent = `Order ID: #${Math.floor(Math.random()*10000000000)}`;
+
+        const orderItems = localStorage.getItem("cartItems");
+        let orderItemsArray = JSON.parse(orderItems);
+
+        function showReceipt() {
+            console.log("order")
+            console.log(orderItemsArray);
+
+            var receiptElement = document.getElementById("receipt");
+
+            orderItemsArray.forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.className = "list-group-item d-flex justify-content-between lh-sm";
+
+                const itemDetails = document.createElement("div");
+                const itemName = document.createElement("h6");
+                itemName.className = "my-0";
+                itemName.textContent = item.item;
+
+                // Display the item count in the description
+                const itemDescription = document.createElement("small");
+                itemDescription.className = "text-body-secondary";
+                itemDescription.textContent = `Quantity: ${item.count}`;
+
+                itemDetails.appendChild(itemName);
+                itemDetails.appendChild(itemDescription);
+
+                const itemCost = document.createElement("span");
+                itemCost.className = "text-body-secondary";
+                itemCost.textContent = "$" + item.cost * item.count;
+
+                // Add the list item to the <ul> element
+                listItem.appendChild(itemDetails);
+                listItem.appendChild(itemCost);
+                ORDERLIST.appendChild(listItem);
+
+                // Update the total cost and total count
+                // totalCost += item.cost * item.count;
+                // totalCount += item.count;
+                // const totalCountdisplay = document.getElementById("checkout-count");
+                // totalCountdisplay.textContent = totalCount;
+            });
+
+            // Toggle the display property to show/hide the receipt
+            receiptElement.style.display = (receiptElement.style.display === "none") ? "block" : "none";
+        }
+    </script>
+</html>

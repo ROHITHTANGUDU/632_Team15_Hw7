@@ -583,22 +583,14 @@ function addtomenu(obj) {
 
 
 wholecart.addEventListener('click', () => {
-
-
-
     body.classList.add('active');
     openShopping.classList.add("none");
     quantity.classList.add("none");
     quantity1.classList.add("none");
     veg.classList.add("none");
-
-
-
-
 })
 
 closeShopping.addEventListener('click', () => {
-
     body.classList.remove('active');
     openShopping.classList.remove("none");
     quantity.classList.remove("none");
