@@ -236,8 +236,10 @@
                 const enteredPromoCode = promoCodeInput.value;
                 let currentTotalCost = totalCost;
                 console.log(promoCodeInput.value);
+                console.log( "apply "+bool)
 
                 if (enteredPromoCode === "FoodMunch25" && bool === false) {
+                    console.log( "25 "+bool)
                     // Apply a 25% discount
                     const discount = (currentTotalCost * 0.25);
                     console.log(discount)
@@ -261,8 +263,9 @@
                     cartItemsList.insertBefore(promoItem, cartItemsList.firstChild);
                     bool = true;
                 }
-                if (enteredPromoCode === "FoodMunch15" && bool === false) {
+                else if (enteredPromoCode === "FoodMunch15" && bool === false) {
                     // Apply a 15% discount
+                    console.log( "15 "+bool)
                     const discount = (currentTotalCost * 0.15);
                     console.log(discount)
 
@@ -285,7 +288,8 @@
                     cartItemsList.insertBefore(promoItem, cartItemsList.firstChild);
                     bool = true;
                 }
-                if (enteredPromoCode === "FoodMunch30" && bool === false) {
+                else if (enteredPromoCode === "FoodMunch30" && bool === false) {
+                    console.log( "30 "+bool)
                     // Apply a 30% discount
                     const discount = (currentTotalCost * 0.30);
                     console.log(discount)
@@ -310,11 +314,15 @@
                     bool = true;
                 }
                 else {
+                    console.log( "else "+bool)
 
                     promoCodeText.textContent = "Invalid Promo Code";
+                    promoCodeText.style.color = "red"
 
                 }
                 promoCodeInput.value = "";
+
+                console.log( "last "+bool)
 
             });
 
