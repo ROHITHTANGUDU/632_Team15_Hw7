@@ -112,11 +112,23 @@
                                 <label for="state" class="form-label">State</label>
                                 <select class="form-select" id="state" required>
                                     <option value="">Choose...</option>
+                                    <option>Arizona</option>
                                     <option>California</option>
+                                    <option>Delaware</option>
+                                    <option>Georgia</option>
+                                    <option>Virginia</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Please provide a valid state.
                                 </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="city" class="form-label">City</label>
+                                <input type="text" class="form-control" id="city" placeholder="" required>
+                                <!-- <div class="invalid-feedback">
+                                    Zip code required.
+                                </div> -->
                             </div>
 
                             <div class="col-md-3">
@@ -156,10 +168,10 @@
                                 <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
                                 <label class="form-check-label" for="debit">Debit card</label>
                             </div>
-                            <div class="form-check">
+                            <!-- <div class="form-check">
                                 <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
                                 <label class="form-check-label" for="paypal">PayPal</label>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="row gy-3">
@@ -262,6 +274,8 @@
                     // Insert the promoItem at the top of the list
                     cartItemsList.insertBefore(promoItem, cartItemsList.firstChild);
                     bool = true;
+                    promoCodeText.textContent = "Added";
+                    promoCodeText.style.color = "green"
                 }
                 else if (enteredPromoCode === "FoodMunch15" && bool === false) {
                     // Apply a 15% discount
@@ -287,6 +301,8 @@
                     // Insert the promoItem at the top of the list
                     cartItemsList.insertBefore(promoItem, cartItemsList.firstChild);
                     bool = true;
+                    promoCodeText.textContent = "Added";
+                    promoCodeText.style.color = "green"
                 }
                 else if (enteredPromoCode === "FoodMunch30" && bool === false) {
                     console.log( "30 "+bool)
@@ -312,6 +328,8 @@
                     // Insert the promoItem at the top of the list
                     cartItemsList.insertBefore(promoItem, cartItemsList.firstChild);
                     bool = true;
+                    promoCodeText.textContent = "Added";
+                    promoCodeText.style.color = "green"
                 }
                 else {
                     console.log( "else "+bool)

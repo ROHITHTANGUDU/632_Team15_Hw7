@@ -207,7 +207,17 @@ for (let each of array) {
     addtomenu(each);
 }
 
-
+var checkoutCart = function (id) {
+    const cartItemsJSON = JSON.stringify(cartItemsArray);
+    localStorage.setItem("cartItems", cartItemsJSON);
+    if (cartItemsArray.length > 0) {
+        window.location.href = "checkout.html";
+    }
+    else {
+        $(id).style.display = 'block';
+        document.body.style.overflow = "hidden";
+    }
+}
 
 
 
