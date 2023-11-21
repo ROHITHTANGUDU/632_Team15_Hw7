@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-12 mt-5 ">
+                <div style="display: inline-block; " class="col-md-5 col-lg-4 order-md-last">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-primary">Your cart</span>
+                        <span class="badge bg-primary rounded-pill" id="checkout-count">0</span>
+                    </h4>
+                    <ul class="list-group mb-3" id="cart-items-list">
+                    </ul>
+
+                    <form class="card p-2">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Promo code" id="promoCodeInput">
+                            <button id="applyPromoCodeButton" class="btn btn-secondary">Redeem</button>
+                        </div>
+                        <p id="promoCodeText">
+
+                        </p>
+                    </form>
+                </div>
+                <div style="display: inline-block;padding-bottom: 150px;">
+                    
+                        <a href="help.html" target="_blank">
+                            <button class="btn btn-primary" style="position:absolute;right:0;">
+                            Help
+                            </button>
+                        </a>
+                       
+            
+                </div>
+                <div class="col-md-7 col-lg-8">
+                    <h4 class="mb-3">Billing address</h4>
+                    <form class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">First name</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                                <div class="invalid-feedback">
+                                    Valid first name is required.
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="lastName" class="form-label">Last name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                                <div class="invalid-feedback">
+                                    Valid last name is required.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="username" class="form-label">Username</label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text">@</span>
+                                    <input type="text" class="form-control" id="username" placeholder="Username"
+                                        required>
+                                    <div class="invalid-feedback">
+                                        Your username is required.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email <span
+                                        class="text-body-secondary">(Optional)</span></label>
+                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address for shipping updates.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="address" placeholder="1234 Main St"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Please enter your shipping address.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="address2" class="form-label">Address 2 <span
+                                        class="text-body-secondary">(Optional)</span></label>
+                                <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                            </div>
+
+                            <div class="col-md-5">
+                                <label for="country" class="form-label">Country</label>
+                                <select class="form-select" id="country" required>
+                                    <option value="">Choose...</option>
+                                    <option>United States</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a valid country.
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="state" class="form-label">State</label>
+                                <select class="form-select" id="state" required>
+                                    <option value="">Choose...</option>
+                                    <option>California</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please provide a valid state.
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="zip" class="form-label">Zip</label>
+                                <input type="text" class="form-control" id="zip" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    Zip code required.
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="same-address">
+                            <label class="form-check-label" for="same-address">Shipping address is the same as my
+                                billing address</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="save-info">
+                            <label class="form-check-label" for="save-info">Save this information for next
+                                time</label>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h4 class="mb-3">Payment</h4>
+
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked
+                                    required>
+                                <label class="form-check-label" for="credit">Credit card</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                                <label class="form-check-label" for="debit">Debit card</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                                <label class="form-check-label" for="paypal">PayPal</label>
+                            </div>
+                        </div>
+
+                        <div class="row gy-3">
+                            <div class="col-md-6">
+                                <label for="cc-name" class="form-label">Name on card</label>
+                                <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                                <small class="text-body-secondary">Full name as displayed on card</small>
+                                <div class="invalid-feedback">
+                                    Name on card is required
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="cc-number" class="form-label">Credit card number</label>
+                                <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    Credit card number is required
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="cc-expiration" class="form-label">Expiration</label>
+                                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    Expiration date required
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="cc-cvv" class="form-label">CVV</label>
+                                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                                <div class="invalid-feedback">
+                                    Security code required
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+                    </form>
+                </div>
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        // Retrieve the cartItemsArray from localStorage
+        const cartItemsJSON = localStorage.getItem("cartItems");
+
+        // Parse the JSON string back into an array
+        const cartItemsArray = JSON.parse(cartItemsJSON);
+
+        if (cartItemsArray) {
+            const promoCodeInput = document.getElementById("promoCodeInput");
+            const applyPromoCodeButtonele = document.getElementById("applyPromoCodeButton");
+            const promoCodeText = document.getElementById("promoCodeText");
+            const discountAmount = document.getElementById("discountAmount");
+            let bool = false;
+
+
+
+            applyPromoCodeButtonele.addEventListener("click", (event) => {
+                event.preventDefault();
+                console.log(totalCost)
+                const enteredPromoCode = promoCodeInput.value;
+                let currentTotalCost = totalCost;
+                console.log(promoCodeInput.value);
+
+                if (enteredPromoCode === "FoodMunch25" && bool === false) {
+                    // Apply a 25% discount
+                    const discount = (currentTotalCost * 0.25);
+                    console.log(discount)
+
+                    currentTotalCost -= discount;
+                    console.log(currentTotalCost)
+                    totalValue.textContent = `$ ${currentTotalCost}`;
+
+                    // Create a list item for the promotion
+                    const promoItem = document.createElement("li");
+                    promoItem.className = "list-group-item d-flex justify-content-between lh-sm";
+                    promoItem.innerHTML = `
+                    <div>
+                        <h6 class="my-0">Promotion (25% off)</h6>
+                    </div>
+                    <span class="text-success">-$${discount.toFixed(2)}</span>
+                    
+                `;
+
+                    // Insert the promoItem at the top of the list
+                    cartItemsList.insertBefore(promoItem, cartItemsList.firstChild);
+                    bool = true;
+                }
+                if (enteredPromoCode === "FoodMunch15" && bool === false) {
+                    // Apply a 15% discount
+                    const discount = (currentTotalCost * 0.15);
+                    console.log(discount)
+
+                    currentTotalCost -= discount;
+                    console.log(currentTotalCost)
+                    totalValue.textContent = `$ ${currentTotalCost}`;
+
+                    // Create a list item for the promotion
+                    const promoItem = document.createElement("li");
+                    promoItem.className = "list-group-item d-flex justify-content-between lh-sm";
+                    promoItem.innerHTML = `
+                    <div>
+                        <h6 class="my-0">Promotion (15% off)</h6>
+                    </div>
+                    <span class="text-success">-$${discount.toFixed(2)}</span>
+                    
+                `;
+
+                    // Insert the promoItem at the top of the list
+                    cartItemsList.insertBefore(promoItem, cartItemsList.firstChild);
+                    bool = true;
+                }
+                if (enteredPromoCode === "FoodMunch30" && bool === false) {
+                    // Apply a 30% discount
+                    const discount = (currentTotalCost * 0.30);
+                    console.log(discount)
+
+                    currentTotalCost -= discount;
+                    console.log(currentTotalCost)
+                    totalValue.textContent = `$ ${currentTotalCost}`;
+
+                    // Create a list item for the promotion
+                    const promoItem = document.createElement("li");
+                    promoItem.className = "list-group-item d-flex justify-content-between lh-sm";
+                    promoItem.innerHTML = `
+                    <div>
+                        <h6 class="my-0">Promotion (30% off)</h6>
+                    </div>
+                    <span class="text-success">-$${discount.toFixed(2)}</span>
+                    
+                `;
+
+                    // Insert the promoItem at the top of the list
+                    cartItemsList.insertBefore(promoItem, cartItemsList.firstChild);
+                    bool = true;
+                }
+                else {
+
+                    promoCodeText.textContent = "Invalid Promo Code";
+
+                }
+                promoCodeInput.value = "";
+
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // Select the <ul> element where list items will be added
+            const cartItemsList = document.getElementById("cart-items-list");
+
+            // Initialize the total cost and total count of items
+            let totalCost = 0;
+            let totalCount = 0;
+
+            // Loop through the cartItemsArray and build list items
+            cartItemsArray.forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.className = "list-group-item d-flex justify-content-between lh-sm";
+
+                const itemDetails = document.createElement("div");
+                const itemName = document.createElement("h6");
+                itemName.className = "my-0";
+                itemName.textContent = item.item;
+
+                // Display the item count in the description
+                const itemDescription = document.createElement("small");
+                itemDescription.className = "text-body-secondary";
+                itemDescription.textContent = `Quantity: ${item.count}`;
+
+                itemDetails.appendChild(itemName);
+                itemDetails.appendChild(itemDescription);
+
+                const itemCost = document.createElement("span");
+                itemCost.className = "text-body-secondary";
+                itemCost.textContent = "$" + item.cost * item.count;
+
+                // Add the list item to the <ul> element
+                listItem.appendChild(itemDetails);
+                listItem.appendChild(itemCost);
+                cartItemsList.appendChild(listItem);
+
+                // Update the total cost and total count
+                totalCost += item.cost * item.count;
+                totalCount += item.count;
+                const totalCountdisplay = document.getElementById("checkout-count");
+                totalCountdisplay.textContent = totalCount;
+            });
+
+            // Add the total cost and total count list items
+            const totalItem = document.createElement("li");
+            totalItem.className = "list-group-item d-flex justify-content-between";
+            const totalLabel = document.createElement("span");
+            totalLabel.textContent = "Total (USD)";
+            const totalValue = document.createElement("strong");
+            totalValue.textContent = "$" + totalCost;
+            totalItem.appendChild(totalLabel);
+            totalItem.appendChild(totalValue);
+            cartItemsList.appendChild(totalItem);
+
+            // Add the total count list item
+        }
+
+        else {
+            console.log("Cart Items not found on Checkout Page");
+        }
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
