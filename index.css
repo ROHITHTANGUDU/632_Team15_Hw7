@@ -5,6 +5,14 @@
     width: 80px;
 }
 
+.ssss
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
 
 
 .total-container {
@@ -615,11 +623,10 @@ html {
     height: 30px;	
     overflow: hidden;
     /* position: relative; */
-    position: relative; /* Change position to fixed */
-    top: -243px; /* Set the distance from the top */
+     /* Set the distance from the top */
 
     background: #d0b200;
-    color: white;
+    color: black;
     border: 1px solid orange;
    }
    .scroll-left p {
