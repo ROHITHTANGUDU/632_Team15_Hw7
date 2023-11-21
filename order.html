@@ -60,6 +60,13 @@
         const orderItems = localStorage.getItem("cartItems");
         let orderItemsArray = JSON.parse(orderItems);
 
+        const urlParams = new URLSearchParams(window.location.search);
+        const totalUSD = urlParams.get('totalUSD');
+
+
+        // Now, 'totalUSD' contains the total cost value
+        console.log('Total USD in Order Page:', totalUSD);
+
         function showReceipt() {
             let totalCost = 0;
             let totalCount = 0;
@@ -109,7 +116,7 @@
             const totalLabel = document.createElement("span");
             totalLabel.textContent = "Total (USD)";
             const totalValue = document.createElement("strong");
-            totalValue.textContent = "$" + totalCost;
+            totalValue.textContent = "$" + totalUSD;
             totalItem.appendChild(totalLabel);
             totalItem.appendChild(totalValue);
             ORDERLIST.appendChild(totalItem);

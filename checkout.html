@@ -213,9 +213,9 @@
 
                         
                     </form>
-                    <a href="order.html" target="_top">
-                        <button class="w-100 btn btn-primary btn-lg">Place Order</button>
-                    </a>
+                    <!-- <a href="order.html" target="_top"> -->
+                        <button class="w-100 btn btn-primary btn-lg " id="placeorder" > Place Order</button>
+                    <!-- </a> -->
                 </div>
 
 
@@ -242,6 +242,7 @@
             const promoCodeText = document.getElementById("promoCodeText");
             const discountAmount = document.getElementById("discountAmount");
             let bool = false;
+            let x;
 
 
 
@@ -262,6 +263,7 @@
                     currentTotalCost -= discount;
                     console.log(currentTotalCost)
                     totalValue.textContent = `$ ${currentTotalCost}`;
+                    x=currentTotalCost
 
                     // Create a list item for the promotion
                     const promoItem = document.createElement("li");
@@ -289,6 +291,7 @@
                     currentTotalCost -= discount;
                     console.log(currentTotalCost)
                     totalValue.textContent = `$ ${currentTotalCost}`;
+                    x=currentTotalCost
 
                     // Create a list item for the promotion
                     const promoItem = document.createElement("li");
@@ -316,6 +319,7 @@
                     currentTotalCost -= discount;
                     console.log(currentTotalCost)
                     totalValue.textContent = `$ ${currentTotalCost}`;
+                    x=currentTotalCost
 
                     // Create a list item for the promotion
                     const promoItem = document.createElement("li");
@@ -336,41 +340,26 @@
                 }
                 else {
                     console.log( "else "+bool)
+                    
 
                     promoCodeText.textContent = "Invalid Promo Code";
-                    promoCodeText.style.color = "red"
+                    promoCodeText.style.color = "red";
 
                 }
+                
                 promoCodeInput.value = "";
+
+
+                
+
+
+
+
 
                 console.log( "last "+bool)
 
+
             });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             // Select the <ul> element where list items will be added
             const cartItemsList = document.getElementById("cart-items-list");
@@ -424,7 +413,27 @@
             totalItem.appendChild(totalValue);
             cartItemsList.appendChild(totalItem);
 
+
+
+
+           
+                x=totalCost;
             // Add the total count list item
+            let placeorderele = document.getElementById("placeorder");
+                placeorderele.addEventListener("click", function(event){
+                console.log("hello" + x);
+                console.log(event.target);
+                window.location.href = `order.html?totalUSD=${x}`;
+                
+
+            })
+
+
+
+
+
+
+
         }
 
         else {
@@ -433,12 +442,13 @@
 
 
 
+        
 
-        document.getElementById("myButton").onclick = function () {
-        location.href = "www.yoursite.com";
-    };
 
-    </script>
+
+        
+
+</script>
 
 
 </body>
