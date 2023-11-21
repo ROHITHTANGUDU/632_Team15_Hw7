@@ -5,30 +5,23 @@
     width: 80px;
 }
 
-.ssss
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-}
 
 
 
 .total-container {
     margin-top: 20px;
-  }
-  
-  .total-label {
+}
+
+.total-label {
     font-weight: bold;
     display: inline-block;
-   
-    
-  }
-  
-  .total-value {
+
+
+}
+
+.total-value {
     display: inline-block;
-  }
+}
 
 .dot {
     display: flex;
@@ -44,32 +37,33 @@
 
 
 }
-.end
-{
+
+.end {
     color: #d0b200;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
- 
-   margin-right: 10px;
-  
-   align-items: flex-end;
-    
+
+    margin-right: 10px;
+
+    align-items: flex-end;
+
 }
-.last
-{
+
+.last {
     color: #d0b200;
     display: flex;
     flex-direction: row;
     justify-content: flex-end !important;
-   border-style: solid;
-   margin-left: 10px;
-   
-    
+    border-style: solid;
+    margin-left: 10px;
+
+
 }
+
 .dot1 {
-   
-margin-bottom: 6px;
+
+    margin-bottom: 6px;
     text-align: center;
     height: 15px;
     width: 15px;
@@ -263,8 +257,8 @@ html {
 
 
 }
-.checkout-button
-{
+
+.checkout-button {
     color: white;
     border-radius: 0px;
     background-color: transparent;
@@ -620,16 +614,17 @@ html {
 }
 
 .scroll-left {
-    height: 30px;	
+    height: 30px;
     overflow: hidden;
     /* position: relative; */
-     /* Set the distance from the top */
+    /* Set the distance from the top */
 
     background: #d0b200;
     color: black;
     border: 1px solid orange;
-   }
-   .scroll-left p {
+}
+
+.scroll-left p {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -639,16 +634,18 @@ html {
     font-style: italic;
     font-size: large;
     /* Starting position */
-    transform:translateX(10%);
+    transform: translateX(10%);
     /* Apply animation to this element */
     animation: scroll-left 15s linear infinite;
-   }
-   /* Move it (define the animation) */
-   @keyframes scroll-left {
-    0%   {
-    transform: translateX(50%); 		
+}
+
+/* Move it (define the animation) */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(50%);
     }
+
     100% {
-    transform: translateX(-50%); 
+        transform: translateX(-50%);
     }
-   }
+}
